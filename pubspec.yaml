@@ -1,0 +1,18 @@
+name: flutter_security_kit
+description: "Production security toolkit for Flutter — SSL pinning, device integrity, deep link validation, rate limiting, suspicious activity tracking."
+version: 0.1.0
+homepage: https://github.com/SkyWalker2506/flutter_security_kit
+environment:
+  sdk: ^3.11.3
+  flutter: ">=3.22.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  crypto: ^3.0.3
+  http: ^1.2.2
+  safe_device: ^1.1.2
+  flutter_secure_storage: ^10.0.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
