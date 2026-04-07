@@ -5,7 +5,8 @@
 /// without touching platform channels.
 library;
 
-import 'package:safe_device/safe_device.dart';
+import 'device_security_service_mobile.dart'
+    if (dart.library.html) 'device_security_service_web.dart';
 
 // ── Abstract interface ────────────────────────────────────────────────────────
 
@@ -22,13 +23,5 @@ class SafeDeviceSecurityService implements DeviceSecurityService {
   const SafeDeviceSecurityService();
 
   @override
-  Future<bool> isDeviceCompromised() async {
-    try {
-      return await SafeDevice.isJailBroken;
-    } catch (_) {
-      // Platform channel unavailable (e.g. unit-test environment).
-      // Fail-open: treat unknown state as secure to avoid false positives.
-      return false;
-    }
-  }
+  Future<bool> isDeviceCompromised() => checkDeviceCompromised();
 }
